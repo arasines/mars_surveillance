@@ -1,0 +1,37 @@
+{
+  "visitedCells": [
+    {
+      "x": 0,
+      "y": 0
+    },
+    {
+      "x": 1,
+      "y": 0
+    },
+    {
+      "x": 1,
+      "y": 1
+    },
+    {
+      "x": 0,
+      "y": 1
+    },
+    {
+      "x": 0,
+      "y": 2
+    }
+  ],
+  "samplesCollected": [
+    "Fe",
+    "Si",
+    "W"
+  ],
+  "battery": 8,
+  "finalPosition": {
+    "location": {
+      "x": 0,
+      "y": 2
+    },
+    "facing": "South"
+  }
+}

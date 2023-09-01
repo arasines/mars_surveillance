@@ -1,14 +1,17 @@
+using Microsoft.OpenApi.Models;
 using obs_test;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddServices();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddServices();
-builder.Services.AddSwaggerGen();
+
+builder.Services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo { Title = "OBS - Mars Surveillance Robot Simulator", Version = "v1" }); });
+// generate lowercase URLs
+builder.Services.Configure<RouteOptions>(options => { options.LowercaseUrls = true; });
 
 var app = builder.Build();
 

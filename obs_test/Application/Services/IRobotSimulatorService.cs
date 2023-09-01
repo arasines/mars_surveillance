@@ -1,9 +1,9 @@
-﻿using obs_test.Domain.Models;
+﻿using obs_test.Application.Interfaces;
+using obs_test.Domain.Models;
 
-namespace obs_test.Application.Services
+namespace obs_test.Application.Services;
+
+public interface IRobotSimulatorService
 {
-    public interface IRobotSimulatorService
-    {
-        SimulationResult SimulateRobot(IRobot robot);
-    }
+    SimulationResult SimulateRobot(IRobot robot);
 }
