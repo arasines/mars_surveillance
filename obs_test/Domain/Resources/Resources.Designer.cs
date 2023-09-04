@@ -151,6 +151,15 @@ namespace obs_test.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The direction is not valid.
+        /// </summary>
+        public static string Message_InvalidDirection {
+            get {
+                return ResourceManager.GetString("Message_InvalidDirection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remaining Battery: {0}.
         /// </summary>
         public static string Message_RemainingBattery {

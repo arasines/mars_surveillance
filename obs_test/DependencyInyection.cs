@@ -6,7 +6,10 @@ namespace obs_test;
 
 public static class DependencyInyection
 {
-    public static IServiceCollection AddServices(this IServiceCollection services) => services
+    public static IServiceCollection AddServices(this IServiceCollection services)
+    {
+        return services
             .AddMediatR(e => e.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()))
             .AddSingleton<IRobotSimulatorService, RobotSimulatorService>();
+    }
 }

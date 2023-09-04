@@ -165,4 +165,7 @@
   <data name="Mark_VisitedCell_Short" xml:space="preserve">
     <value>[X]</value>
   </data>
+  <data name="Message_InvalidDirection" xml:space="preserve">
+    <value>The direction is not valid</value>
+  </data>
 </root>

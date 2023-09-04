@@ -1,5 +1,6 @@
 ﻿using obs_test.Domain.Entities;
 using obs_test.Domain.Enums;
+using obs_test.Domain.Resources;
 
 namespace obs_test.Application.Extensions;
 
@@ -23,7 +24,7 @@ public static class RobotExtensions
                 newLocation.X--;
                 break;
             default:
-                throw new ArgumentOutOfRangeException(nameof(Direction), position.Facing, "The direction is not valid");
+                throw new ArgumentOutOfRangeException(nameof(Direction), position.Facing, Resources.Message_InvalidDirection);
         }
 
         return new Position(newLocation)
@@ -43,16 +44,25 @@ public static class RobotExtensions
                terrain[position.Location.Y][position.Location.X] != "Obs";
     }
 
-    public static Direction GetOppositeDirection(this Direction direction) => direction switch
+    public static Direction GetOppositeDirection(this Direction direction)
     {
-        Direction.North => Direction.South,
-        Direction.East => Direction.West,
-        Direction.South => Direction.North,
-        Direction.West => Direction.East,
-        _ => Direction.North
-    };
+        return direction switch
+        {
+            Direction.North => Direction.South,
+            Direction.East => Direction.West,
+            Direction.South => Direction.North,
+            Direction.West => Direction.East,
+            _ => Direction.North
+        };
+    }
 
-    public static Direction GetLeftTurnDirection(this Direction direction) => (Direction)(((int)direction + 3) % 4);
+    public static Direction GetLeftTurnDirection(this Direction direction)
+    {
+        return (Direction)(((int)direction + 3) % 4);
+    }
 
-    public static Direction GetRightTurnDirection(this Direction direction) => (Direction)(((int)direction + 1) % 4);
+    public static Direction GetRightTurnDirection(this Direction direction)
+    {
+        return (Direction)(((int)direction + 1) % 4);
+    }
 }

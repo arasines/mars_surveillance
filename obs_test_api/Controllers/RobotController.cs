@@ -1,3 +1,4 @@
+using Ardalis.GuardClauses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using obs_test.Application.Extensions;
@@ -24,10 +25,19 @@ public class RobotController : ControllerBase
     /// <param name="mediator"></param>
     public RobotController(ILogger<RobotController> logger, IMediator mediator)
     {
+        Guard.Against.Null(mediator, nameof(mediator));
+        Guard.Against.Null(logger, nameof(logger));
         _logger = logger;
         _mediator = mediator;
     }
 
+    /// <summary>
+    ///   Executes the Robot Simulation
+    /// </summary>
+    /// <param name="file">The simulation parameters</param>
+    /// <response code="200">The simulation result: visited cells, samples collected and final position</response>
+    /// <response code="400">Mmissing/invalid values</response>
+    /// <response code="500">Oops! Can't execute the simulation right now</response>
     [HttpPost]
     [ProducesResponseType(typeof(SimulationResult), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]

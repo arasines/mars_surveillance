@@ -22,5 +22,8 @@ public class TerrainValidator : AbstractValidator<string[][]>
         return terrain.All(row => row.Length == expectedColumnCount);
     }
 
-    private static bool ValidateTerrainValues(string[][] terrain) => terrain.All(row => row.All(cell => TerrainTypeParser.TryParse(cell, out _)));
+    private static bool ValidateTerrainValues(string[][] terrain)
+    {
+        return terrain.All(row => row.All(cell => TerrainTypeParser.TryParse(cell, out _)));
+    }
 }

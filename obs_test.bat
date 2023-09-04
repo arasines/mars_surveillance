@@ -18,7 +18,6 @@ echo.
 echo.
 REM Check for the -help option
 IF "%~1"=="-help" (
-	echo.
     echo Usage:
     echo.
     echo Run the REST API:
@@ -32,7 +31,7 @@ IF "%~1"=="-help" (
 REM Check for the number of command-line arguments
 IF "%~1"=="" (
     REM No arguments provided, run the REST API
-    dotnet run --project obs_test_api
+    dotnet run --project obs_test_api --launch-profile https --verbosity quiet
 ) ELSE IF "%~3"=="" (
     REM Two arguments provided, run the console application
     dotnet run --project obs_test_console %1 %2

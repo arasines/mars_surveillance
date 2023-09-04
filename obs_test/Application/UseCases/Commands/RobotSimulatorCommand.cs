@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Ardalis.GuardClauses;
+using MediatR;
 using obs_test.Application.Interfaces;
 using obs_test.Application.Robots;
 using obs_test.Application.Services;
@@ -10,6 +11,7 @@ public class RobotSimulatorCommand : IRequest<SimulationResult>
 {
     public RobotSimulatorCommand(InputData parameters)
     {
+        Guard.Against.Null(parameters, nameof(parameters));
         Parameters = parameters;
     }
 
@@ -24,6 +26,7 @@ public class RobotSimulatorCommandHandler : IRequestHandler<RobotSimulatorComman
 
     public RobotSimulatorCommandHandler(IRobotSimulatorService simulatorService)
     {
+        Guard.Against.Null(simulatorService, nameof(simulatorService));
         _simulatorService = simulatorService;
     }
 

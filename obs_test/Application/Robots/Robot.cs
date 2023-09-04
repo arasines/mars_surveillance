@@ -1,4 +1,5 @@
-﻿using obs_test.Application.Extensions;
+﻿using Ardalis.GuardClauses;
+using obs_test.Application.Extensions;
 using obs_test.Application.Interfaces;
 using obs_test.Domain.Entities;
 using obs_test.Domain.Enums;
@@ -14,6 +15,7 @@ public class Robot : IRobot
 
     public Robot(InputData inputData)
     {
+        Guard.Against.Null(inputData, nameof(inputData));
         InputData = inputData;
         RemainingBattery = inputData.Battery;
         CurrentPosition = inputData.InitialPosition;
@@ -90,7 +92,10 @@ public class Robot : IRobot
         }
     }
 
-    private void ChargeBattery(int amount) => RemainingBattery += amount;
+    private void ChargeBattery(int amount)
+    {
+        RemainingBattery += amount;
+    }
 
     private bool TryConsumeBattery(int amount)
     {
