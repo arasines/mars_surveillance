@@ -1,6 +1,12 @@
 # Welcome to Mars Surveillance Robot Simulator!
 The Olympic Channel has recently developed a **Mars Surveillance Robot** with the intent of exploring the surface on Mars and explore suitability for future Olympic Sports on low gravity over there.
-![](https://www.obs.tv/assets/logoOBS.svg)
+
+### Features
+
+- .NET 7.0
+- Support for REST API endpoints
+- Clean Architecture on CQRS
+
 
 ### Tools required to run project
 
