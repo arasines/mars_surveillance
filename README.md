@@ -18,8 +18,8 @@ The Olympic Channel has recently developed a **Mars Surveillance Robot** with th
 This solution contains a console application and a REST API service for processing robot JSON files.
 1. Download or clone the project code from https://github.com/arasines/mars_surveillance
 
-2.  Open a terminal and navigate to the root directory of the solution.
-3.  Start the simulator by executing the BAT file **obs_test.bat** on the solution root folder  (where the mars_surveillance.sln file is located) :
+2. Open a terminal and navigate to the root directory of the solution.
+3. Start the simulator by executing the BAT file **obs_test.bat** on the solution root folder  (where the mars_surveillance.sln file is located) :
 
 	`obs_test c:\mypath\jsonInput.json c:\output\jsonOutput.json`
 	to run the console program with input and output.
